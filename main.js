@@ -37,12 +37,21 @@ var words = [
 var randomWord = words[Math.floor(Math.random() * words.length)];
 
 // array to output html underscore for each letter of picked random word
-randWordArray = [];
-for (var i = 0; i < randomWord.length; i++); {
+    var randWordArray = [];
+    for (var i = 0; i < randomWord.length; i++){
     randWordArray[i] = "_ ";
-    document.getElementById("answer").innerHTML = randWordArray;
-
 }
+
+document.getElementById("answer").innerHTML = (randWordArray.join(" "));
+
+
+
+
+// var randWordArray = [];
+// for (var i = 0; i < randomWord.length; i++); {
+//     randWordArray[i] = "_ ";
+// }
+
 
 
 // functions to make letter display none when chosen by the user
