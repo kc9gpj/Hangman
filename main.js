@@ -32,109 +32,94 @@ var words = [
     "nintendo",
     "microsoft",
 
+
 ]
+
+// Array that holds random word
+var randWordArray = [];
+
+var letterBank = [];
+
+var randomWord = [];
+
+var wrongCounter = []
+
 // random word pick
 var randomWord = words[Math.floor(Math.random() * words.length)];
+console.log(randomWord);
 
-// array to output html underscore for each letter of picked random word
-    var randWordArray = [];
-    for (var i = 0; i < randomWord.length; i++){
-    randWordArray[i] = "_ ";
+    // on key function cycles through characters 65 through 90
+document.onkeyup = function(event) {
+    if (event.keyCode >= 65 && event.keyCode <= 90){
+       userGuess(event.key);       
 }
-
-document.getElementById("answer").innerHTML = (randWordArray.join(" "));
-
-
-
-
-// var randWordArray = [];
-// for (var i = 0; i < randomWord.length; i++); {
-//     randWordArray[i] = "_ ";
-// }
-
-
-
-// functions to make letter display none when chosen by the user
-function aFunction() {
-    document.getElementById("a").style.display = "none"; 
+}
+// array to output html underscore for each letter of picked random word
+    
+    for (var i = 0; i < randomWord.length; i++){
+        if (randomWord[i] === ' ')
+        // push blank space for word
+        {
+        randWordArray.push(' ');
+        }
+        // push dash for letter
+        else {
+        randWordArray.push('_ ');
+        }
+        document.getElementById("answer").textContent = randWordArray.join("");
+        console.log(randomWord[i]);
     }
 
-function bFunction() {
-    document.getElementById("b").style.display = "none";
-}
-function cFunction() {
-    document.getElementById("c").style.display = "none";
-}
-function dFunction() {
-    document.getElementById("d").style.display = "none";
-}
-function eFunction() {
-    document.getElementById("e").style.display = "none";
-}
-function fFunction() {
-    document.getElementById("f").style.display = "none";
-}
-function gFunction() {
-    document.getElementById("g").style.display = "none";
-}
-function hFunction() {
-    document.getElementById("h").style.display = "none";
-}
-function iFunction() {
-    document.getElementById("i").style.display = "none";
-}
-function jFunction() {
-    document.getElementById("j").style.display = "none";
-}
-function kFunction() {
-    document.getElementById("k").style.display = "none";
-}
-function lFunction() {
-    document.getElementById("l").style.display = "none";
-}
-function mFunction() {
-    document.getElementById("m").style.display = "none";
-}
-function nFunction() {
-    document.getElementById("n").style.display = "none";
-}
-function oFunction() {
-    document.getElementById("o").style.display = "none";
-}
-function pFunction() {
-    document.getElementById("p").style.display = "none";
-}
-function qFunction() {
-    document.getElementById("q").style.display = "none";
-}
-function rFunction() {
-    document.getElementById("r").style.display = "none";
-}
-function sFunction() {
-    document.getElementById("s").style.display = "none";
-}
-function tFunction() {
-    document.getElementById("t").style.display = "none";
-}
-function uFunction() {
-    document.getElementById("u").style.display = "none";
-}
-function vFunction() {
-    document.getElementById("v").style.display = "none";
-}
-function wFunction() {
-    document.getElementById("w").style.display = "none";
-}
-function xFunction() {
-    document.getElementById("x").style.display = "none";
-}
-function yFunction() {
-    document.getElementById("y").style.display = "none";
-}
-function zFunction() {
-    document.getElementById("z").style.display = "none";
-}
+function userGuess(letter){
+    console.log(letter);
+    console.log(randomWord.indexOf(letter));
+// loop that cycles guessed letter through word
+if (randomWord.indexOf(letter >= 0)) {
+    for (var i = 0; i < randomWord.length; i++);{
+         if(randomWord[i] === letter){
+             randWordArray[i] = randomWord[i];  
 
+ }  
+ }
+//  input correct letter in place of dash
+    document.getElementById("answer").textContent = randWordArray.join("");
+}
+else {
+        // wrong letter adds +1 to wrong counter
+        if (randomWord.indexOf(letter === -1)) {
+            wrongCounter++;
+            console.log(wrongCounter);
+            console.log(letter);
+
+            // display different levels of hangman with wrong answer
+           if (wrongCounter == 1) {
+                document.getElementById("mike2").style.display = "block";
+            } 
+            
+            if (wrongCounter == 2) {
+                document.getElementById("mike3").style.display = "block";
+            } 
+            
+            if (wrongCounter == 3) {
+                document.getElementById("mike4").style.display = "block";
+            } 
+            
+            if (wrongCounter == 4) {
+                document.getElementById("mike5").style.display = "block";
+            } 
+            
+            if (wrongCounter == 5) {
+                document.getElementById("mike6").style.display = "block";
+            } 
+            
+            if (wrongCounter == 6) {
+                document.getElementById("mike7").style.display = "block";
+            } 
+            
+
+        }
+    }
+}
 
 
 
