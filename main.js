@@ -42,7 +42,9 @@ var letterBank = [];
 
 var randomWord = [];
 
-var wrongCounter = []
+var wrongCounter = 0;
+
+
 
 // random word pick
 var randomWord = words[Math.floor(Math.random() * words.length)];
@@ -74,51 +76,89 @@ function userGuess(letter){
     console.log(letter);
     console.log(randomWord.indexOf(letter));
 // loop that cycles guessed letter through word
-if (randomWord.indexOf(letter >= 0)) {
-    for (var i = 0; i < randomWord.length; i++);{
-         if(randomWord[i] === letter){
-             randWordArray[i] = randomWord[i];  
+if (randomWord.indexOf(letter) >= 0) {
+    for (var j = 0; j < randomWord.length; j++);{
+         if(randomWord[j] === letter){
+             randWordArray[j] = letter ;  
 
  }  
- }
+ } 
 //  input correct letter in place of dash
     document.getElementById("answer").textContent = randWordArray.join("");
 }
-else {
         // wrong letter adds +1 to wrong counter
-        if (randomWord.indexOf(letter === -1)) {
+else if (randomWord.indexOf(letter) === -1) {
             wrongCounter++;
             console.log(wrongCounter);
-            console.log(letter);
 
             // display different levels of hangman with wrong answer
-           if (wrongCounter == 1) {
+            if (wrongCounter === 1) {
+                document.getElementById("mike1").style.display = "none";
                 document.getElementById("mike2").style.display = "block";
+                document.getElementById("mike3").style.display = "none";
+                document.getElementById("mike4").style.display = "none";
+                document.getElementById("mike5").style.display = "none";
+                document.getElementById("mike6").style.display = "none";
+                document.getElementById("mike7").style.display = "none";
             } 
             
-            if (wrongCounter == 2) {
+            if (wrongCounter === 2) {
+                document.getElementById("mike1").style.display = "none";
+                document.getElementById("mike2").style.display = "none";
                 document.getElementById("mike3").style.display = "block";
+                document.getElementById("mike4").style.display = "none";
+                document.getElementById("mike5").style.display = "none";
+                document.getElementById("mike6").style.display = "none";
+                document.getElementById("mike7").style.display = "none";
             } 
             
-            if (wrongCounter == 3) {
+            if (wrongCounter === 3) {
+                document.getElementById("mike1").style.display = "none";
+                document.getElementById("mike2").style.display = "none";
+                document.getElementById("mike3").style.display = "none";
                 document.getElementById("mike4").style.display = "block";
+                document.getElementById("mike5").style.display = "none";
+                document.getElementById("mike6").style.display = "none";
+                document.getElementById("mike7").style.display = "none";            
             } 
             
-            if (wrongCounter == 4) {
+            if (wrongCounter === 4) {
+                document.getElementById("mike1").style.display = "none";
+                document.getElementById("mike2").style.display = "none";
+                document.getElementById("mike3").style.display = "none";
+                document.getElementById("mike4").style.display = "none";
                 document.getElementById("mike5").style.display = "block";
+                document.getElementById("mike6").style.display = "none";
+                document.getElementById("mike7").style.display = "none";            
             } 
             
-            if (wrongCounter == 5) {
+            if (wrongCounter === 5) {
+                document.getElementById("mike1").style.display = "none";
+                document.getElementById("mike2").style.display = "none";
+                document.getElementById("mike3").style.display = "none";
+                document.getElementById("mike4").style.display = "none";
+                document.getElementById("mike5").style.display = "none";
                 document.getElementById("mike6").style.display = "block";
+                document.getElementById("mike7").style.display = "none";            
             } 
             
-            if (wrongCounter == 6) {
-                document.getElementById("mike7").style.display = "block";
+            if (wrongCounter === 6) {
+                document.getElementById("mike1").style.display = "none";
+                document.getElementById("mike2").style.display = "none";
+                document.getElementById("mike3").style.display = "none";
+                document.getElementById("mike4").style.display = "none";
+                document.getElementById("mike5").style.display = "none";
+                document.getElementById("mike6").style.display = "none";
+                document.getElementById("mike7").style.display = "block";            
             } 
+
             
 
         }
     }
+
+function newgame() {
+    location.reload();
 }
 
 
