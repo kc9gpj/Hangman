@@ -90,6 +90,7 @@ if (randomWord.indexOf(letter) >= 0) {
          if(randomWord[j] === letter) {
              randWordArray[j] = letter; 
              console.log(randWordArray[j]);
+            
              
  }  
 //  replace dash with letter
