@@ -14,6 +14,11 @@ body {
     
 }
 
+#usedletters {
+    font-size: 30px
+    
+}
+
 .mike {
     width: 375px;
     height: 500 rpx;

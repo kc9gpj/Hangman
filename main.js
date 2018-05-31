@@ -1,36 +1,46 @@
 // word choices for user
 var words = [
-    "monkey",
-    "motorcycle",
-    "airplane",
-    "automobile",
-    "buffalo",
-    "jaguars",
-    "mississippi",
-    "wisconsin",
-    "americans",
-    "ecuador",
-    "mexico",
-    "california",
-    "nagasaki",
+    "abandon",
+    "abnormal",
+    "abomination",
+    "afflicted",
+    "aggravate",
+    "agonize",
+    "anxiety",
+    "belligerent",
+    "blood",
+    "bones",
+    "butcher",
+    "cemetary",
+    "chills",
     "revelation",
-    "badger",
-    "basketball",
-    "football",
-    "hockey",
-    "washington",
-    "nuclear",
-    "canadian",
-    "alaska",
-    "rifle",
-    "saturn",
-    "jupiter",
-    "europa",
-    "titan",
-    "neptune",
-    "antartica",
-    "nintendo",
-    "microsoft",
+    "chopped",
+    "convulse",
+    "creepy",
+    "damned",
+    "delirious",
+    "demonic",
+    "depraved",
+    "despicable",
+    "devil",
+    "dismember",
+    "haunted",
+    "gruesome",
+    "graveyard",
+    "grave",
+    "fugitive",
+    "dread",
+    "merciless",
+    "morbid",
+    "purge",
+    "satan",
+    "scream",
+    "wicked",
+    "violent",
+    "torment",
+    "skeleton",
+    "sinister",
+    "horde",
 
 
 ]
@@ -44,9 +54,6 @@ var wrongCounter = 0;
 
 var lettersUsed = [];
 
-console.log(lettersUsed);
-
-
 // random word pick
 var randomWord = words[Math.floor(Math.random() * words.length)];
 console.log(randomWord);
@@ -54,7 +61,8 @@ console.log(randomWord);
     // on key function cycles through characters 65 through 90
 document.onkeyup = function(event) {
     if (event.keyCode >= 65 && event.keyCode <= 90){
-       userGuess(event.key);       
+       userGuess(event.key);  
+
 }
 }
 // array to output html underscore for each letter of picked random word
@@ -74,8 +82,7 @@ document.onkeyup = function(event) {
     }
 
 function userGuess(letter){
-    lettersUsed = letter;
-    console.log(letter);
+        console.log(letter);
     console.log(randomWord.indexOf(letter));
 // loop that cycles guessed letter through word
 if (randomWord.indexOf(letter) >= 0) {
@@ -95,11 +102,13 @@ if (randomWord.indexOf(letter) >= 0) {
 }
         // wrong letter adds +1 to wrong counter
 else if (randomWord.indexOf(letter) === -1) {
-            lettersUsed  = letter;
+            lettersUsed.push(letter);
+            console.log(lettersUsed);
             // counter goes up for wrong guess
             wrongCounter++;
             console.log(wrongCounter);
-            document.getElementById("usedletters").innerHTML = lettersUsed.push;
+            document.getElementById("usedletters").innerText = lettersUsed;
+
             
 
 
@@ -165,6 +174,8 @@ else if (randomWord.indexOf(letter) === -1) {
                 document.getElementById("mike7").style.display = "block"; 
                 // block onkeyup when counter is at 6   
                 document.onkeyup = false; 
+                document.getElementById("answer").innerHTML = randomWord.slice(' ');
+
 
                  
             } 
@@ -177,6 +188,8 @@ else if (randomWord.indexOf(letter) === -1) {
 function newgame() {
     location.reload();
 }
+
+
 
 
 
