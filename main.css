@@ -2,7 +2,10 @@
 
 body {
     /* background-image: url("img/background.jpg"); */
-    background-color: lightgray;
+    background-image: url("img/walker.jpg");
+    /* background-color: lightgray; */
+    background-repeat: no-repeat;
+    background-size: cover;
     
 }
 
@@ -17,7 +20,7 @@ body {
 }
 
 #nav {
-    color: darkred;
+    color: red;
 }
 
 

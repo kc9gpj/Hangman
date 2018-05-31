@@ -38,12 +38,13 @@ var words = [
 // Array that holds random word
 var randWordArray = [];
 
-var letterBank = [];
-
 var randomWord = [];
 
 var wrongCounter = 0;
 
+var lettersUsed = [];
+
+console.log(lettersUsed);
 
 
 // random word pick
@@ -57,7 +58,6 @@ document.onkeyup = function(event) {
 }
 }
 // array to output html underscore for each letter of picked random word
-    
     for (var i = 0; i < randomWord.length; i++){
         if (randomWord[i] === ' ')
         // push blank space for word
@@ -66,32 +66,45 @@ document.onkeyup = function(event) {
         }
         // push dash for letter
         else {
-        randWordArray.push('_ ');
+        randWordArray.push('_ ');        
         }
-        document.getElementById("answer").textContent = randWordArray.join("");
+        document.getElementById("answer").innerHTML = randWordArray.join(' ');
         console.log(randomWord[i]);
+        console.log(randWordArray);
     }
 
 function userGuess(letter){
+    lettersUsed = letter;
     console.log(letter);
     console.log(randomWord.indexOf(letter));
 // loop that cycles guessed letter through word
 if (randomWord.indexOf(letter) >= 0) {
-    for (var j = 0; j < randomWord.length; j++);{
-         if(randomWord[j] === letter){
-             randWordArray[j] = letter ;  
-
+    for (var j = 0; j < randomWord.length; j++){
+         if(randomWord[j] === letter) {
+             randWordArray[j] = letter; 
+             console.log(randWordArray[j]);
+             
  }  
+//  replace dash with letter
+ document.getElementById("answer").innerHTML = randWordArray.join(' ');
+
  } 
 //  input correct letter in place of dash
-    document.getElementById("answer").textContent = randWordArray.join("");
+    console.log(randWordArray);
+
 }
         // wrong letter adds +1 to wrong counter
 else if (randomWord.indexOf(letter) === -1) {
+            lettersUsed  = letter;
+            // counter goes up for wrong guess
             wrongCounter++;
             console.log(wrongCounter);
+            document.getElementById("usedletters").innerHTML = lettersUsed.push;
+            
 
-            // display different levels of hangman with wrong answer
+
+
+            // display different levels of hangman wnen wrongCounter goes up
             if (wrongCounter === 1) {
                 document.getElementById("mike1").style.display = "none";
                 document.getElementById("mike2").style.display = "block";
@@ -149,14 +162,18 @@ else if (randomWord.indexOf(letter) === -1) {
                 document.getElementById("mike4").style.display = "none";
                 document.getElementById("mike5").style.display = "none";
                 document.getElementById("mike6").style.display = "none";
-                document.getElementById("mike7").style.display = "block";            
+                document.getElementById("mike7").style.display = "block"; 
+                // block onkeyup when counter is at 6   
+                document.onkeyup = false; 
+
+                 
             } 
 
             
 
         }
     }
-
+// new game button to reload javascript
 function newgame() {
     location.reload();
 }
