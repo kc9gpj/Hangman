@@ -41,8 +41,6 @@ var words = [
     "skeleton",
     "sinister",
     "horde",
-
-
 ]
 
 // Array that holds random word
